@@ -1,3 +1,6 @@
 .env
 venv/
 AI_MUSIC_COMPOSER.egg-info/
+.streamlit/secrets.toml
+__pycache__/
+*.pyc
