@@ -15,7 +15,11 @@ music_input = st.text_input("Describe the music you want to compose")
 style = st.selectbox("Choose a style" , ["Sad" , "Happy" , "Jazz" , "Romantic" , "Extreme"])
 
 if st.button("Generate Music") and music_input:
-    generator = MusicLLM()
+    try:
+        generator = MusicLLM()
+    except ValueError as e:
+        st.error(str(e))
+        st.stop()
 
     with st.spinner("Generating music"):
         melody = generator.generate_melody(music_input)
